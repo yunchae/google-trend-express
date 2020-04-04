@@ -19,14 +19,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const corsOptions = {
-//   origin: 'https://gt-xica.web.app',
-//   credentials: true,
-//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
-//
-// app.use(cors(corsOptions))
-app.use(cors())
+const corsOptions = {
+  origin: 'https://gt-xica.web.app',
+  credentials: true,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions))
+// app.use(cors())
 
 app.use('/', indexRouter);
 
